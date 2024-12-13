@@ -1,7 +1,7 @@
 name: simple_getx_folder_create
-description: "A new Flutter package project."
+description: "A new getx simple folder create"
 version: 0.0.1
-homepage:
+homepage: https://github.com/Ye-Thurein-Kyaw/simple_getx_folder_create
 
 environment:
   sdk: ^3.5.4
