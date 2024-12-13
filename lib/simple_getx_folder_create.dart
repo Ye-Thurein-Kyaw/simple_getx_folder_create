@@ -18,7 +18,7 @@ void main(List<String> arguments) {
   createFolderStructure(folderName);
 }
 
-void createFolderStructure(String folderName) {
+void createFolderStructure(String folderName) { 
   final pagesDir = Directory('lib/pages');
 
   // Ensure 'lib/pages' exists
