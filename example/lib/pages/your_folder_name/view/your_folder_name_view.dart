@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controller/example_controller.dart';
+import '../controller/your_folder_name_controller.dart';
 
-class Simple extends GetView<ExampleController> {
+class Simple extends GetView<Your_folder_nameController> {
   static const routeName = '/simple';
   const Simple({super.key});
 
