@@ -34,7 +34,7 @@ class ErrWidget extends StatelessWidget {
             visible: errors.errType == ErrType.authErr,
             child: ElevatedButton(
               onPressed: () {
-                // box.remove(Spf.token); //you need to run {flutter pub add get_storage} at terminal to install GetStorage package
+                box.remove(Spf.token);
                 Get.offAllNamed("/");
               },
               child: const Text("Go to Login"),
