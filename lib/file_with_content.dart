@@ -4,7 +4,8 @@ class FileWithContentClass {
   static get e => null;
 
   static final filesWithContent = {
-    'lib/network/api_service.dart': '''import 'dart:convert';
+    'lib/network/api_service.dart': '''
+import 'dart:convert';
 import 'dart:developer';
 import 'package:get/get.dart';
 import 'api_exception.dart';
@@ -29,7 +30,7 @@ class ApiService extends GetConnect {
 
     httpClient.addRequestModifier<dynamic>((request) async {
       if (_token != null) {
-        request.headers['Authorization'] = 'Bearer $_token';
+        request.headers['Authorization'] = 'Bearer null'; // _token;
       }
       request.headers['Accept'] = 'application/json';
       request.headers['Content-Type'] = 'application/json';
@@ -38,7 +39,7 @@ class ApiService extends GetConnect {
 
       if (bodyBytes.isNotEmpty) {
         final decodedBody = utf8.decode(bodyBytes);
-        log('Request Body: $decodedBody');
+        log('Request Body: null'); // decodedBody);
       } else {
         log('Request Body: No body');
       }
@@ -116,7 +117,7 @@ class ApiService extends GetConnect {
     } on ApiException {
       rethrow;
     } catch (e) {
-      log("catch block : ${e.toString()}");
+      log("catch block : null"); // e
       if (e.toString().contains('Connecting timed out') ||
           e.toString().contains('SocketException') ||
           e.toString().contains('connection error')) {
@@ -127,7 +128,6 @@ class ApiService extends GetConnect {
     }
   }
 }
-
 
 ''',
     'lib/network/api_exception.dart': '''
@@ -892,7 +892,7 @@ class ErrWidget extends StatelessWidget {
             visible: errors.errType == ErrType.authErr,
             child: ElevatedButton(
               onPressed: () {
-                // box.remove(Spf.token); //you need to run {flutter pub add get_storage} at terminal to install GetStorage package
+                box.remove(Spf.token);
                 Get.offAllNamed("/");
               },
               child: const Text("Go to Login"),

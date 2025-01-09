@@ -14,8 +14,8 @@ void main(List<String> arguments) {
 
   if (!setupFile.existsSync()) {
     // install get and get_storage package
-    _runCommand('flutter pub add get');
     _runCommand('flutter pub add get_storage');
+    _runCommand('flutter pub add get');
     // Run the base setup only once
     createBaseFolderStructure();
     updateMainDart();
