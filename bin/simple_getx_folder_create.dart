@@ -2,9 +2,8 @@
 
 import 'dart:io';
 import 'package:args/args.dart';
-
-import 'file_with_content.dart';
-import 'sub_folder_with_context.dart';
+import 'package:simple_getx_folder_create/file_with_content.dart';
+import 'package:simple_getx_folder_create/sub_folder_with_context.dart';
 
 void main(List<String> arguments) {
   final parser = ArgParser()..addOption('folder', abbr: 'f', help: 'Name of the page folder to create');
