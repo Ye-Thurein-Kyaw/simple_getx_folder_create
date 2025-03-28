@@ -7,7 +7,8 @@ import 'file_with_Content.dart';
 import 'sub_folder_with_context.dart';
 
 void main(List<String> arguments) {
-  final parser = ArgParser()..addOption('folder', abbr: 'f', help: 'Name of the page folder to create');
+  final parser = ArgParser()
+    ..addOption('folder', abbr: 'f', help: 'Name of the page folder to create');
   final argResults = parser.parse(arguments);
 
   final setupFile = File('.setup_completed');
@@ -36,7 +37,8 @@ void main(List<String> arguments) {
       print('Base structure and main.dart updated.');
       print('you need to change api_service.dart');
     } else {
-      print('No folder name provided. Please provide a folder name using the -f flag.');
+      print(
+          'No folder name provided. Please provide a folder name using the -f flag.');
     }
   }
 }

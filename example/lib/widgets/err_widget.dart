@@ -45,6 +45,7 @@ class ErrWidget extends StatelessWidget {
     );
   }
 }
+
 class _ErrorDetail {
   static String getTitle(ErrType errType) {
     switch (errType) {
@@ -63,5 +64,3 @@ class _ErrorDetail {
     }
   }
 }
- 
- 

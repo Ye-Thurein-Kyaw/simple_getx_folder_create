@@ -27,7 +27,8 @@ void main() {
       final subfolders = ['view', 'controller', 'model', 'provider', 'binding'];
       for (var subfolder in subfolders) {
         final subfolderPath = Directory(join(baseDir.path, subfolder));
-        expect(subfolderPath.existsSync(), isTrue, reason: '$subfolder should exist');
+        expect(subfolderPath.existsSync(), isTrue,
+            reason: '$subfolder should exist');
       }
     });
 
@@ -44,7 +45,8 @@ void main() {
       subfolders.forEach((subfolder, filePath) {
         final file = File(join(baseDir.path, filePath));
         expect(file.existsSync(), isTrue, reason: '$filePath should exist');
-        expect(file.readAsStringSync().isNotEmpty, isTrue, reason: '$filePath should not be empty');
+        expect(file.readAsStringSync().isNotEmpty, isTrue,
+            reason: '$filePath should not be empty');
       });
     });
   });
