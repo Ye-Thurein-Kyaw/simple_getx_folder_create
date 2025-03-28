@@ -5,4 +5,3 @@ final box = GetStorage();
 class Spf {
   static const token = "token";
 }
-

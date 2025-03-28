@@ -5,7 +5,7 @@ import '../controller/splash_controller.dart';
 
 class Splash extends GetView<SplashController> {
   static const route = '/splash';
-  const Splash ({super.key});
+  const Splash({super.key});
 
   @override
   Widget build(BuildContext context) {
