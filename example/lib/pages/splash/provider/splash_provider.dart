@@ -1,1 +1,3 @@
-class SplashProvider {}
+class SplashProvider {
+  
+}

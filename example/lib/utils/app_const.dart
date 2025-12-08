@@ -4,4 +4,6 @@ final box = GetStorage();
 
 class Spf {
   static const token = "token";
+  static const isDarkMode = "isDarkMode";
 }
+

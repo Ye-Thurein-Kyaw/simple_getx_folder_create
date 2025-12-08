@@ -23,7 +23,7 @@ class ApiService extends GetConnect {
 
     httpClient.addRequestModifier<dynamic>((request) async {
       if (_token != null) {
-        request.headers['Authorization'] = 'Bearer $_token';
+        request.headers['Authorization'] = 'Bearer _token';
       }
       request.headers['Accept'] = 'application/json';
       request.headers['Content-Type'] = 'application/json';
@@ -31,8 +31,8 @@ class ApiService extends GetConnect {
       final bodyBytes = await request.bodyBytes.toBytes();
 
       if (bodyBytes.isNotEmpty) {
-        final decodedBody = utf8.decode(bodyBytes);
-        log('Request Body: $decodedBody'); 
+       // final decodedBody = utf8.decode(bodyBytes);
+        log('Request Body: decodedBody');
       } else {
         log('Request Body: No body');
       }
@@ -85,6 +85,7 @@ class ApiService extends GetConnect {
         );
       }
 
+
       if (response.status.connectionError) {
         log('No internet');
         throw ApiException.connectionError();
@@ -109,7 +110,7 @@ class ApiService extends GetConnect {
     } on ApiException {
       rethrow;
     } catch (e) {
-      log("catch block : $e"); 
+      log("catch block : e");
       if (e.toString().contains('Connecting timed out') ||
           e.toString().contains('SocketException') ||
           e.toString().contains('connection error')) {
@@ -120,3 +121,4 @@ class ApiService extends GetConnect {
     }
   }
 }
+

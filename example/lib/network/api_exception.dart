@@ -71,3 +71,4 @@ enum ErrType {
   authErr,
   unknownErr,
 }
+

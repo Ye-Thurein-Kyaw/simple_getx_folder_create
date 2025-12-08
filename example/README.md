@@ -1,8 +1,16 @@
 # example
 
-This is to create simple folder structure for getx.
-## use package
-- **cd .\exapmle\**
-- run given **dart run ../lib/simple_getx_folder_create.dart -f your_folder_name**
-- It will create automaticaly simple folder, contain binding,controller, model, provider and view.
-- You need to install get **https://pub.dev/packages/get**, because this package for getx simple folder structure.
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

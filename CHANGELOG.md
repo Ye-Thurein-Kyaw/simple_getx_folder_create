@@ -17,3 +17,8 @@
 ## 0.0.5
 
 * To create new page without creating base folder structure.
+
+## 0.0.6
+- Migrated to null safety
+- Improvements and bug fixes
+- Add Dark Mode Feature.

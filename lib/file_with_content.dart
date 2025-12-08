@@ -34,7 +34,7 @@ class ApiService extends GetConnect {
       final bodyBytes = await request.bodyBytes.toBytes();
 
       if (bodyBytes.isNotEmpty) {
-        final decodedBody = utf8.decode(bodyBytes);
+       // final decodedBody = utf8.decode(bodyBytes);
         log('Request Body: decodedBody');
       } else {
         log('Request Body: No body');
@@ -227,6 +227,7 @@ final box = GetStorage();
 
 class Spf {
   static const token = "token";
+  static const isDarkMode = "isDarkMode";
 }
 
 ''',
@@ -243,8 +244,34 @@ List<GetPage> getpages = [
   ),
 ];
 ''',
-    'lib/utils/theme.dart': '''
-import "package:flutter/material.dart";
+    'lib/utils/theme_controller.dart': '''
+import 'package:get/get.dart';
+
+import '../pages/splash/view/splash_page.dart';
+import 'app_const.dart';
+import 'theme.dart';
+
+class ThemeController extends GetxController {
+  RxBool isDarkMode = false.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    isDarkMode.value = box.read(Spf.isDarkMode) ?? false;
+  }
+
+  void toggleTheme() {
+    isDarkMode.value = !isDarkMode.value;
+    Get.changeTheme(
+      isDarkMode.value
+          ? MaterialTheme.constant.dark()
+          : MaterialTheme.constant.light(),
+    );
+    box.write('isDarkMode', isDarkMode.value);
+    Get.offAllNamed(Splash.route);
+  }
+}''',
+    'lib/utils/theme.dart': '''import "package:flutter/material.dart";
 import "package:get/get.dart";
 
 class MaterialTheme {
@@ -616,7 +643,7 @@ class MaterialTheme {
           bodyColor: colorScheme.onSurface,
           displayColor: colorScheme.onSurface,
         ),
-        scaffoldBackgroundColor: colorScheme.background,
+        scaffoldBackgroundColor: colorScheme.surface,
         canvasColor: colorScheme.surface,
       );
 
@@ -749,11 +776,9 @@ extension MaterialSchemeUtils on MaterialScheme {
       onError: onError,
       errorContainer: errorContainer,
       onErrorContainer: onErrorContainer,
-      background: background,
-      onBackground: onBackground,
       surface: surface,
       onSurface: onSurface,
-      surfaceVariant: surfaceVariant,
+      surfaceContainerHighest: surfaceVariant,
       onSurfaceVariant: onSurfaceVariant,
       outline: outline,
       outlineVariant: outlineVariant,

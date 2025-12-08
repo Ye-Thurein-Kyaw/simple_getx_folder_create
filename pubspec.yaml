@@ -1,6 +1,6 @@
 name: simple_getx_folder_create
 description: "A new getx simple folder create"
-version: 0.0.3
+version: 0.0.6
 homepage: https://github.com/Ye-Thurein-Kyaw/simple_getx_folder_create
 
 environment:
@@ -23,7 +23,7 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
-flutter:
+# flutter:
 
   # To add assets to your package, add an assets section, like this:
   # assets:

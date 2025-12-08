@@ -1,1 +1,3 @@
-class SplashModel {}
+class SplashModel {
+  
+}

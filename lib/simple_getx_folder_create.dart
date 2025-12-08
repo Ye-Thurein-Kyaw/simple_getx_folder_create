@@ -7,8 +7,7 @@ import 'file_with_Content.dart';
 import 'sub_folder_with_context.dart';
 
 void main(List<String> arguments) {
-  final parser = ArgParser()
-    ..addOption('folder', abbr: 'f', help: 'Name of the page folder to create');
+  final parser = ArgParser()..addOption('folder', abbr: 'f', help: 'Name of the page folder to create');
   final argResults = parser.parse(arguments);
 
   final setupFile = File('.setup_completed');
@@ -17,6 +16,7 @@ void main(List<String> arguments) {
     // install get and get_storage package
     _runCommand('flutter pub add get_storage');
     _runCommand('flutter pub add get');
+    _runCommand('flutter pub get');
     // Run the base setup only once
     createBaseFolderStructure();
     updateMainDart();
@@ -37,8 +37,7 @@ void main(List<String> arguments) {
       print('Base structure and main.dart updated.');
       print('you need to change api_service.dart');
     } else {
-      print(
-          'No folder name provided. Please provide a folder name using the -f flag.');
+      print('No folder name provided. Please provide a folder name using the -f flag.');
     }
   }
 }
@@ -139,9 +138,11 @@ import 'network/api_service.dart';
 import 'pages/splash/view/splash_page.dart';
 import 'utils/routes.dart';
 import 'utils/theme.dart';
+import 'utils/theme_controller.dart';
 
 void main() async {
   await GetStorage.init();
+  Get.lazyPut(() => ThemeController());
   Get.put(ApiService());
   Get.put(const MaterialTheme(TextTheme()));
   runApp(const MyApp());
@@ -153,7 +154,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      themeMode: ThemeMode.light,
+      themeMode: Get.find<ThemeController>().isDarkMode.value
+                      ? ThemeMode.dark
+                      : ThemeMode.light,
       theme: MaterialTheme.constant.light(),
       darkTheme: MaterialTheme.constant.dark(),
       highContrastDarkTheme: MaterialTheme.constant.darkHighContrast(),

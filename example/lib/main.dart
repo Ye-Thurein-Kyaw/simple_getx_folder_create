@@ -6,9 +6,11 @@ import 'network/api_service.dart';
 import 'pages/splash/view/splash_page.dart';
 import 'utils/routes.dart';
 import 'utils/theme.dart';
+import 'utils/theme_controller.dart';
 
 void main() async {
   await GetStorage.init();
+  Get.lazyPut(() => ThemeController());
   Get.put(ApiService());
   Get.put(const MaterialTheme(TextTheme()));
   runApp(const MyApp());
@@ -20,7 +22,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      themeMode: ThemeMode.light,
+      themeMode: Get.find<ThemeController>().isDarkMode.value
+                      ? ThemeMode.dark
+                      : ThemeMode.light,
       theme: MaterialTheme.constant.light(),
       darkTheme: MaterialTheme.constant.dark(),
       highContrastDarkTheme: MaterialTheme.constant.darkHighContrast(),
@@ -30,3 +34,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
