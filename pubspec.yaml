@@ -1,7 +1,13 @@
 name: simple_getx_folder_create
-description: "A new getx simple folder create"
-version: 0.0.6
+description: >-
+  A Dart CLI tool that scaffolds a complete GetX Flutter project structure,
+  including pages, network layer, utils, widgets, and a wired main.dart
+  with GetStorage and light/dark theme support out of the box.
+version: 0.0.7
 homepage: https://github.com/Ye-Thurein-Kyaw/simple_getx_folder_create
+
+executables:
+  simple_getx_folder_create: simple_getx_folder_create
 
 environment:
   sdk: ^3.5.4
@@ -18,6 +24,14 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^4.0.0
   lints: ^4.0.0
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  windows:
+  web:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:developer';
 import 'package:get/get.dart';
 import 'api_exception.dart';

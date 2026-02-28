@@ -22,3 +22,6 @@
 - Migrated to null safety
 - Improvements and bug fixes
 - Add Dark Mode Feature.
+
+## 0.0.7
+- add documentation

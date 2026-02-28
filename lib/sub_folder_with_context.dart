@@ -1,6 +1,26 @@
+/// Provides template file contents for a GetX page module's sub-folders.
+///
+/// Set [SubFoldersWithContentClass.folderName] before reading
+/// [SubFoldersWithContentClass.subFoldersWithContent] so that class names
+/// and import paths in the templates are correctly interpolated.
+///
+/// Example:
+/// ```dart
+/// SubFoldersWithContentClass.folderName = 'home';
+/// SubFoldersWithContentClass.subFoldersWithContent.forEach((folder, content) {
+///   // write content to lib/pages/home/<folder>/
+/// });
+/// ```
 class SubFoldersWithContentClass {
+  /// The name of the page module being scaffolded (e.g. `'home'`, `'splash'`).
+  ///
+  /// Must be set before accessing [subFoldersWithContent].
   static String folderName = '';
 
+  /// A map of sub-folder names to their template Dart source content.
+  ///
+  /// Keys are sub-folder names (`view`, `controller`, `model`, `provider`,
+  /// `binding`) and values are the Dart source strings written to disk.
   static final subFoldersWithContent = {
     'view': folderName == 'splash'
         ? '''

@@ -1,9 +1,10 @@
 // ignore_for_file: avoid_print
 
 import 'dart:io';
+
 import 'package:args/args.dart';
 
-import 'file_with_Content.dart';
+import 'file_with_content.dart';
 import 'sub_folder_with_context.dart';
 
 void main(List<String> arguments) {
@@ -52,6 +53,16 @@ void _runCommand(String command) {
   });
 }
 
+/// Creates the base folder structure for a GetX Flutter project.
+///
+/// Generates [lib/pages], [lib/network], [lib/utils], and [lib/widgets]
+/// directories and writes all template files defined in
+/// [FileWithContentClass.filesWithContent] into the target project.
+///
+/// Example:
+/// ```dart
+/// createBaseFolderStructure();
+/// ```
 void createBaseFolderStructure() {
   // Base directories
   final baseDirectories = [
@@ -84,6 +95,19 @@ void createBaseFolderStructure() {
   });
 }
 
+/// Creates a GetX page module under `lib/pages/<folderName>`.
+///
+/// Generates five sub-folders and their corresponding Dart files:
+/// - `view/<folderName>_page.dart`
+/// - `controller/<folderName>_controller.dart`
+/// - `model/<folderName>_model.dart`
+/// - `provider/<folderName>_provider.dart`
+/// - `binding/<folderName>_binding.dart`
+///
+/// Example:
+/// ```dart
+/// createPageFolderStructure('home');
+/// ```
 void createPageFolderStructure(String folderName) {
   final pagesDir = Directory('lib/pages');
   if (!pagesDir.existsSync()) {
@@ -128,6 +152,16 @@ void createPageFolderStructure(String folderName) {
   });
 }
 
+/// Overwrites `lib/main.dart` with a GetX + GetStorage bootstrapped app shell.
+///
+/// The generated file sets up [GetStorage], registers [ThemeController] and
+/// [ApiService] via [Get], and wires [GetMaterialApp] with named routes and
+/// light/dark theme support.
+///
+/// Example:
+/// ```dart
+/// updateMainDart();
+/// ```
 void updateMainDart() {
   const mainDartTemplate = '''
 import 'package:flutter/material.dart';

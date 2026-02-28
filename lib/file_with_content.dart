@@ -1,5 +1,20 @@
+/// Provides template file contents for the base GetX Flutter project structure.
+///
+/// Use [FileWithContentClass.filesWithContent] to access the map of
+/// relative file paths to their generated Dart source code.
 class FileWithContentClass {
-  static final filesWithContent = {
+  /// A map of relative file paths to their template Dart source content.
+  ///
+  /// Keys are paths such as `lib/network/api_service.dart`; values are the
+  /// full source strings written to disk during initial project scaffolding.
+  ///
+  /// Example:
+  /// ```dart
+  /// FileWithContentClass.filesWithContent.forEach((path, content) {
+  ///   File(path).writeAsStringSync(content);
+  /// });
+  /// ```
+  static final Map<String, String> filesWithContent = {
     'lib/network/api_service.dart': '''
 import 'dart:convert';
 import 'dart:developer';
