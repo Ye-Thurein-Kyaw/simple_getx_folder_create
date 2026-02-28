@@ -3,8 +3,7 @@
 import 'dart:io';
 
 import 'package:args/args.dart';
-import 'package:simple_getx_folder_create/file_with_content.dart';
-import 'package:simple_getx_folder_create/sub_folder_with_context.dart';
+import 'package:simple_getx_folder_create/simple_getx_folder_create.dart';
 
 void main(List<String> arguments) {
   final parser = ArgParser()

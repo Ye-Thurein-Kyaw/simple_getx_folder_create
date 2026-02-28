@@ -2,56 +2,8 @@
 
 import 'dart:io';
 
-import 'package:args/args.dart';
-
 import 'file_with_content.dart';
 import 'sub_folder_with_context.dart';
-
-void main(List<String> arguments) {
-  final parser = ArgParser()..addOption('folder', abbr: 'f', help: 'Name of the page folder to create');
-  final argResults = parser.parse(arguments);
-
-  final setupFile = File('.setup_completed');
-
-  if (!setupFile.existsSync()) {
-    // install get and get_storage package
-    _runCommand('flutter pub add get_storage');
-    _runCommand('flutter pub add get');
-    _runCommand('flutter pub get');
-    // Run the base setup only once
-    createBaseFolderStructure();
-    updateMainDart();
-    print('Initial setup completed.');
-  }
-
-  if (argResults.wasParsed('folder')) {
-    final folderName = argResults['folder'];
-    if (folderName == null || folderName.isEmpty) {
-      print('Folder name cannot be empty.');
-      return;
-    }
-    createPageFolderStructure(folderName);
-  } else {
-    if (!setupFile.existsSync()) {
-      createPageFolderStructure('splash');
-      setupFile.writeAsStringSync('Base structure and main.dart updated.');
-      print('Base structure and main.dart updated.');
-      print('you need to change api_service.dart');
-    } else {
-      print('No folder name provided. Please provide a folder name using the -f flag.');
-    }
-  }
-}
-
-void _runCommand(String command) {
-  Process.run(command, [], runInShell: true).then((process) {
-    if (process.exitCode == 0) {
-      print('Command executed successfully');
-    } else {
-      print('Error executing command: ${process.stderr}');
-    }
-  });
-}
 
 /// Creates the base folder structure for a GetX Flutter project.
 ///
